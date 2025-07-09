@@ -1,18 +1,23 @@
 // import express, {Express,Request,Response} from 'express';
 
 import app from "./app";
+import dotenv from "dotenv";
+
+dotenv.config(); //load the all properties from the .env file
 
 /*01.initialize the express app
 const app :Express = express();*/
-// 02.define application port
-const port = 3000;
+
+// 02.define application port(define in the .env file)
+ const port = process.env.PORT || 3000; // Access the port
 
 /*03.define simple HTTP GET request handler
 app.get("/",(req : Request , res : Response) =>{
     res.send("Hello world!");
 });*/
+
 //04.Instruct the express app to listen on port 3000
 app.listen(port, () => {
-    console.log(`Server is runing at http://localhost:${port}`);
+    console.log(`Server is running at http://localhost:${port}`);
 })
 
