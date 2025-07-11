@@ -1,6 +1,7 @@
 import express, {Express,Request,Response}  from "express";
 import productRoutes from "./routes/product.routes"
 import cors from "cors";
+import contactRoutes from "./routes/contact.routes";
 //01.initialize the express app
 const app :Express = express();
 
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(cors())
 
 app.use("/api/products",productRoutes)
+app.use("/api/contacts",contactRoutes)
 
 //03.define simple HTTP GET request handler
 /*app.get("/",(req : Request , res : Response) =>{
@@ -18,7 +20,7 @@ app.use("/api/products",productRoutes)
     res.send("Hello world!");
 });*/
 
-/*const  allowedOrigins = [
+const  allowedOrigins = [
     "http://localhost:5173"
 ];
 
@@ -32,8 +34,7 @@ const  corsOptions = {
         }
 
     }
-};*/
-
-// app.use(cors(corsOptions));
+};
+app.use(cors(corsOptions));
 
 export default app;
