@@ -2,6 +2,7 @@
 
 import app from "./app";
 import dotenv from "dotenv";
+import DBConnection from "./db/DBConnection";
 
 dotenv.config(); //load the all properties from the .env file
 
@@ -15,6 +16,10 @@ const app :Express = express();*/
 app.get("/",(req : Request , res : Response) =>{
     res.send("Hello world!");
 });*/
+
+//then() is call back function
+DBConnection().then(result => console.log(result))
+
 
 //04.Instruct the express app to listen on port 3000
 app.listen(port, () => {

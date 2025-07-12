@@ -35,6 +35,7 @@ const  corsOptions = {
 
     }
 };
+
 app.use(cors(corsOptions));
 
 export default app;
